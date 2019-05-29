@@ -1,0 +1,5 @@
+alpha, beta and psi:[46.78, 284.9, 157.5] , position computed x:0.6647315155340111, y:-13.076823521140671
+alpha, beta and psi:[304.0, 12.6, 142.5] , position computed x:0.6528186562246899, y:-12.668032654288993
+alpha, beta and psi:[100.1, 263.6, 187.5] , position computed x:0.4926493627791132, y:-14.850727275337231
+alpha, beta and psi:[138.6, 240.6, 210.0] , position computed x:1.2617404216106476, y:-13.34781942915438
+alpha, beta and psi:[59.87, 278.4, 165.0] , position computed x:0.7570001093882107, y:-12.874600849995796

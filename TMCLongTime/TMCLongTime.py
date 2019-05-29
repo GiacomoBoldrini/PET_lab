@@ -46,6 +46,7 @@ def Load_reading(userpath):
 
 ROOT.gROOT.SetBatch(True)
 real, measured, err_tmcl, err_chrono = Load_reading("/Users/boldrinicoder/lab4/TMCLongTime/TMCLLongTime.txt")
+
 y = []
 x = []
 err_x = []
@@ -61,20 +62,32 @@ while i < len(real)-3:
 
 #plotting time delay versus measure
 g = ROOT_obj.TGraph_err_obj(len(real), real, measured, err_tmcl, err_chrono, 8, 1, "TMCL time [s]", "Real Time [s]", "TMCL Time Linearity [s]")
+
+g1 = ROOT_obj.TGraph_err_obj(len(real), real, measured, np.array(err_tmcl)*100, np.array(err_chrono)*100, 8, 1, "TMCL time [s]", "Real Time [s]", "TMCL Time Linearity [s]")
+
+legend = ROOT.TLegend(0.15,0.80,0.35,0.89)
+legend.SetHeader("", "C")
+legend.SetLineWidth(0)
+
+legend.AddEntry(g, "x100 Errors", "p")
+
 #fit = ROOT_obj.Linear_fit(inf = 1, sup = 40, color= ROOT.kRed, width = 1)
 fit = ROOT_obj.Linear_fit()
 fit.SetLineColor(4)
 c = ROOT_obj.Create_Canvas(1000,800)
-c.SetGridx()
-c.SetGridy()
 g.Fit(fit)
+g1.Draw("P same")
+
+
 ROOT.gStyle.SetOptFit(1111)
 ROOT.gStyle.SetStatX(.9)
 ROOT.gStyle.SetStatY(.4)
 g.Draw("AP")
+g1.Draw("P same")
+legend.Draw()
 c.Draw()
-c.SaveAs("/Users/boldrinicoder/lab4/General_Graphs/pdfs/Real_Time_TMCL_time.pdf", "pdf")
-c.SaveAs("/Users/boldrinicoder/lab4/General_Graphs/roots/Real_Time_TMCL_time.root", "root")
+c.SaveAs("/Users/boldrinicoder/lab4/General_Graphs/pdfs/TMCL_time_linearity.pdf", "pdf")
+c.SaveAs("/Users/boldrinicoder/lab4/General_Graphs/roots/TMCL_time_linearity.root", "root")
 
 
 

@@ -296,7 +296,7 @@ temp = list(map(float, Temp_reading()))
 print(temp[:10])
 
 #leggiamo e fittiamo tutti gli spettri
-f = sorted(glob.glob("/Users/boldrinicoder/lab4/data/Temperature3/Temperature3/*.txt"))
+f = sorted(glob.glob("/Users/boldrinicoder/lab4/data/Temperature/*.txt"))
 #f = f[:10]
 index = 0
 mkdir_p("/Users/boldrinicoder/lab4/data/Grafici3")
